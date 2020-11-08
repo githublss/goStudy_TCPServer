@@ -2,7 +2,6 @@ package znet
 
 import (
 	"Zinx/ziface"
-	"errors"
 	"fmt"
 	"net"
 )
@@ -12,16 +11,10 @@ type Server struct {
 	IPVersion string
 	IP string
 	Port int
+	// server注册的链接对应的处理业务
+	Router ziface.IRouter
 }
-//临时定义处理客户端链接的函数
-func CallbackToClient(conn *net.TCPConn, data []byte,count int) error{
-	fmt.Println("[Conn handle] CallbackClient")
-	if _,err := conn.Write(data[:count]);err!=nil{
-		fmt.Println("write back buff error:",err)
-		return errors.New("CallbackToClient error")
-	}
-	return nil
-}
+
 func (s *Server) Start()  {
 	fmt.Printf("[Start] Server Listenner at IP:%s, Port： %d, is started\n", s.IP, s.Port)
 	//
@@ -66,7 +59,7 @@ func (s *Server) Start()  {
 			//}()
 
 			//将新链接conn和方法进行绑定封装
-			dealConn := NewConnection(conn,connId,CallbackToClient)
+			dealConn := NewConnection(conn,connId,s.Router)
 			connId++
 			go dealConn.Start()
 		}
@@ -85,12 +78,17 @@ func (s *Server) Server()  {
 	select {}
 }
 
+// 添加一个路由
+func (s *Server) AddRouter(router ziface.IRouter){
+	s.Router = router
+}
 func NewServer(name string) ziface.IServer {
 	s := &Server{
 		Name: name,
 		IPVersion: "tcp4",
 		IP: "0.0.0.0",
 		Port: 8999,
+		Router: nil,
 	}
 	return s
 }
