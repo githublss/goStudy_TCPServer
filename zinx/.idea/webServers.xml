@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="bd8bd982-e891-473a-a338-66938aa536c1" name="tensent">
+        <fileTransfer rootFolder="/home/ubuntu/go_code" accessType="SFTP" host="106.53.11.204" port="22" sshConfigId="e4aeb2d0-17e1-458f-ace0-43b851278b40" sshConfig="ubuntu@106.53.11.204:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
