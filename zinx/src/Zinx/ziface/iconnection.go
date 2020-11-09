@@ -22,7 +22,6 @@ type IConnection interface {
 
 	//发送数据
 	Send(data []byte) error
-
 }
 
 //定义一个处理链接业务的方法

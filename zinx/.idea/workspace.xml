@@ -22,7 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2426ab7b-3f98-4eab-bd99-2a5757dbe91a" name="Default Changelist" comment="" />
+    <list default="true" id="2426ab7b-3f98-4eab-bd99-2a5757dbe91a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/ziface/iconnection.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/ziface/iconnection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/znet/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/znet/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/server.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +44,7 @@
   </component>
   <component name="GOROOT" path="C:\Go" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src/github.com/go-delve/delve" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GoLibraries">
     <option name="urls">
@@ -63,11 +69,12 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/myDemo/V0.3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/myDemo/Zinx0.4" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\gloang_code\zinx\src\myDemo\Zinx0.4" />
       <recent name="F:\gloang_code\zinx\src\myDemo\V0.3" />
     </key>
   </component>

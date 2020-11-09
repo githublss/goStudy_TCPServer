@@ -1,6 +1,7 @@
 package znet
 
 import (
+	"Zinx/utils"
 	"Zinx/ziface"
 	"fmt"
 	"net"
@@ -41,22 +42,6 @@ func (s *Server) Start()  {
 				fmt.Println("Accept err",err)
 				continue
 			}
-			//
-			//go func() {
-			//	for{
-			//		buf := make([]byte,512)
-			//		readLen,err := conn.Read(buf)
-			//		if err != nil{
-			//			fmt.Println("Read err",err)
-			//			continue
-			//		}
-			//		fmt.Printf("from client a message:%s \n",buf)
-			//		if _, err := conn.Write(buf[:readLen]); err != nil{
-			//			fmt.Println("Write err",err)
-			//			continue
-			//		}
-			//	}
-			//}()
 
 			//将新链接conn和方法进行绑定封装
 			dealConn := NewConnection(conn,connId,s.Router)
@@ -84,10 +69,10 @@ func (s *Server) AddRouter(router ziface.IRouter){
 }
 func NewServer(name string) ziface.IServer {
 	s := &Server{
-		Name: name,
+		Name: utils.GlobalObject.Name,
 		IPVersion: "tcp4",
-		IP: "0.0.0.0",
-		Port: 8999,
+		IP: utils.GlobalObject.Host,
+		Port: utils.GlobalObject.TcpPort,
 		Router: nil,
 	}
 	return s

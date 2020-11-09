@@ -1,6 +1,7 @@
 package znet
 
 import (
+	"Zinx/utils"
 	"Zinx/ziface"
 	"fmt"
 	"net"
@@ -41,7 +42,7 @@ func (c *Connection) StartReader()  {
 
 	for{
 		//读取数据
-		buf := make([]byte,512)
+		buf := make([]byte,utils.GlobalObject.MaxPacketSize)
 		_,err := c.Conn.Read(buf)
 		if err != nil{
 			fmt.Println("recv buff err",err)
@@ -51,11 +52,6 @@ func (c *Connection) StartReader()  {
 			conn: c,
 			data: buf,
 		}
-		//调用绑定API
-		//if err:=c.HandleAPI(c.Conn,buf,readCount);err!= nil{
-		//	fmt.Println("ConnID",c.ConnID,"handle error is ",err)
-		//	break
-		//}
 
 		//执行注册路由的的方法
 		go func(request ziface.IRequest) {
