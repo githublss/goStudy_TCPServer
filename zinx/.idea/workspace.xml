@@ -23,10 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2426ab7b-3f98-4eab-bd99-2a5757dbe91a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/utils/globalobj.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/utils/globalobj.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zinx/ziface/iconnection.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/ziface/iconnection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/ziface/irequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/ziface/irequest.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zinx/znet/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/znet/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/request.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zinx/znet/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,16 +71,17 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/myDemo/Zinx0.4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/myDemo/Zinx0.5" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\gloang_code\zinx\src\myDemo\Zinx0.5" />
       <recent name="F:\gloang_code\zinx\src\myDemo\Zinx0.4" />
       <recent name="F:\gloang_code\zinx\src\myDemo\V0.3" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build myDemo/ZinxV0.1 (1)">
+  <component name="RunManager" selected="Go Test.datapack_test.go">
     <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="zinx" />
       <working_directory value="$PROJECT_DIR$" />
@@ -114,8 +117,18 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="datapack_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="zinx" />
+      <working_directory value="$PROJECT_DIR$/src/Zinx/znet" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/src/Zinx/znet/datapack_test.go" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.datapack_test.go" />
         <item itemvalue="Go Build.go build myDemo/ZinxV0.1 (1)" />
         <item itemvalue="Go Build.go build myDemo/ZinxV0.1" />
         <item itemvalue="Go Build.go build server.go" />
@@ -140,6 +153,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1055" y="252" width="814" height="729" key="#Intentions" timestamp="1604998804554">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="1055" y="252" width="814" height="729" key="#Intentions/0.0.2048.1112@0.0.2048.1112" timestamp="1604998804554" />
     <state x="288" y="257" width="1089" height="743" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603975258203">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -156,22 +173,22 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="969" y="481" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1604046460633" />
-    <state width="742" height="138" key="GridCell.Tab.0.bottom" timestamp="1604567098429">
+    <state width="609" height="337" key="GridCell.Tab.0.bottom" timestamp="1605064250693">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="742" height="138" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1604567098429" />
-    <state width="742" height="138" key="GridCell.Tab.0.center" timestamp="1604567098429">
+    <state width="609" height="337" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1605064250693" />
+    <state width="609" height="337" key="GridCell.Tab.0.center" timestamp="1605064250693">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="742" height="138" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1604567098429" />
-    <state width="742" height="138" key="GridCell.Tab.0.left" timestamp="1604567098429">
+    <state width="609" height="337" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1605064250693" />
+    <state width="609" height="337" key="GridCell.Tab.0.left" timestamp="1605064250693">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="742" height="138" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1604567098429" />
-    <state width="742" height="138" key="GridCell.Tab.0.right" timestamp="1604567098429">
+    <state width="609" height="337" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1605064250693" />
+    <state width="609" height="337" key="GridCell.Tab.0.right" timestamp="1605064250693">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="742" height="138" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1604567098429" />
+    <state width="609" height="337" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1605064250693" />
     <state x="577" y="342" width="1141" height="770" key="SettingsEditor" timestamp="1604544644190">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -180,5 +197,9 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="1171" y="382" key="ftp.server.browser/0.0.2048.1112@0.0.2048.1112" timestamp="1604046374739" />
+    <state width="600" height="428" key="javadoc.popup" timestamp="1604997681335">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state width="600" height="428" key="javadoc.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1604997681335" />
   </component>
 </project>

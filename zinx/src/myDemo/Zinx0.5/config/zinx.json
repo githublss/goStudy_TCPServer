@@ -1,0 +1,9 @@
+{
+  "Host" : "0.0.0.0",
+  "TcpPort" : 9999,
+  "Name" : "Go Study Server",
+
+  "Version" : "V1.0",
+  "MaxPacketSize" : 1024,
+  "MaxConn" : 1024
+}
