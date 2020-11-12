@@ -1,16 +1,16 @@
 package znet
 
-type Message struct{
-	Id uint32
+type Message struct {
+	Id      uint32
 	DataLen uint32
-	Data []byte
+	Data    []byte
 }
 
 //创建一个message包
-func NewMsgPackage(id uint32,data []byte)  *Message{
+func NewMsgPackage(id uint32, data []byte) *Message {
 	return &Message{
-		Id: id,
-		Data: data,
+		Id:      id,
+		Data:    data,
 		DataLen: uint32(len(data)),
 	}
 }
@@ -38,4 +38,3 @@ func (msg *Message) SetData(bytes []byte) {
 func (msg *Message) SetMessageId(u uint32) {
 	msg.Id = u
 }
-

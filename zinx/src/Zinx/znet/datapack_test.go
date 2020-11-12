@@ -65,8 +65,8 @@ func TestDataPack_Pack(t *testing.T) {
 			DataLen: 5,
 		}
 		sendData1, err := dp.Pack(msg1)
-		if err != nil{
-			fmt.Println("client packData error:",err)
+		if err != nil {
+			fmt.Println("client packData error:", err)
 			return
 		}
 		var msg2 ziface.Imessage = &Message{
@@ -75,20 +75,20 @@ func TestDataPack_Pack(t *testing.T) {
 			DataLen: 6,
 		}
 		sendData2, err := dp.Pack(msg2)
-		if err != nil{
-			fmt.Println("client packData error:",err)
+		if err != nil {
+			fmt.Println("client packData error:", err)
 			return
 		}
 		sendData1 = append(sendData1, sendData2...)
 
-		if _,err := conn.Write(sendData1);err != nil{
-			fmt.Println("clent write error:",err)
+		if _, err := conn.Write(sendData1); err != nil {
+			fmt.Println("clent write error:", err)
 			return
 		}
 	}()
 	//阻塞
 	select {
-	case <-time.After(time.Second*2):
+	case <-time.After(time.Second * 2):
 		return
 	}
 }

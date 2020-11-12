@@ -16,6 +16,7 @@ func (r *Request) GetConnection() ziface.IConnection {
 func (r *Request) GetData() []byte {
 	return r.msg.GetData()
 }
+
 //TODO 更好的方式是获取一个message，然后调用者使用返回的message的方法
 func (r *Request) GetMsgId() uint32 {
 	return r.msg.GetMessageId()

@@ -13,7 +13,7 @@ type Server struct {
 	IP        string
 	Port      int
 	// server注册的链接对应的处理业务
-	Router ziface.IRouter
+	MsgHandle ziface.IMsgHandle
 }
 
 func (s *Server) Start() {
@@ -29,7 +29,7 @@ func (s *Server) Start() {
 		// 监听addr并获取一个listener
 		listener, err := net.ListenTCP(s.IPVersion, addr)
 		if err != nil {
-			fmt.Println("listen:", s.IP,":",s.Port, "error")
+			fmt.Println("listen:", s.IP, ":", s.Port, "error")
 			return
 		}
 		fmt.Println("start Zinx server success---")
@@ -43,8 +43,8 @@ func (s *Server) Start() {
 				continue
 			}
 
-			//将新链接conn和方法进行绑定封装
-			dealConn := NewConnection(conn, connId, s.Router)
+			//将新链接conn和路由进行绑定封装
+			dealConn := NewConnection(conn, connId, s.MsgHandle)
 			connId++
 			go dealConn.Start()
 		}
@@ -64,8 +64,9 @@ func (s *Server) Server() {
 }
 
 // 添加一个路由
-func (s *Server) AddRouter(router ziface.IRouter) {
-	s.Router = router
+func (s *Server) AddRouter(msgId uint32, router ziface.IRouter) {
+	//检查是否已经存在
+	s.MsgHandle.AddRouter(msgId, router)
 }
 func NewServer(name string) ziface.IServer {
 	s := &Server{
@@ -73,7 +74,7 @@ func NewServer(name string) ziface.IServer {
 		IPVersion: "tcp4",
 		IP:        utils.GlobalObject.Host,
 		Port:      utils.GlobalObject.TcpPort,
-		Router:    nil,
+		MsgHandle: NewMsgHandle(),
 	}
 	return s
 }

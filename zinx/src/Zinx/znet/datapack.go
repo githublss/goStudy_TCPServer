@@ -20,7 +20,7 @@ func NewDataPack() *DataPack {
 	return &DataPack{}
 }
 
-//封包
+//将message封包，生成二进制发送格式
 func (dp *DataPack) Pack(msg ziface.Imessage) ([]byte, error) {
 	//创建一个存放bytes的缓冲
 	dataBuff := bytes.NewBuffer([]byte{})

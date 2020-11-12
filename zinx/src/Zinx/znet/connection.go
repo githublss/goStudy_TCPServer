@@ -20,17 +20,17 @@ type Connection struct {
 
 	//告知当前连接已退出的 channel
 	ExitChan chan bool
-
-	Router ziface.IRouter
+	//消息管理模块，用来绑定MsgId和对应的处理方法
+	MsgHandle ziface.IMsgHandle
 }
 
-func NewConnection(conn *net.TCPConn, connID uint32, router ziface.IRouter) *Connection {
+func NewConnection(conn *net.TCPConn, connID uint32, msgHandle ziface.IMsgHandle) *Connection {
 	c := &Connection{
-		Conn:     conn,
-		ConnID:   connID,
-		IsClosed: false,
-		Router:   router,
-		ExitChan: make(chan bool, 1),
+		Conn:      conn,
+		ConnID:    connID,
+		IsClosed:  false,
+		MsgHandle: msgHandle,
+		ExitChan:  make(chan bool, 1),
 	}
 	return c
 }
@@ -46,13 +46,13 @@ func (c *Connection) StartReader() {
 		headData := make([]byte, dp.GetHeadLen())
 		if _, err := io.ReadFull(c.Conn, headData); err != nil {
 			fmt.Println("read msg head error ", err)
-			continue
+			return
 		}
 		//拆包，将包头数据解析放在msg中
 		msg, err := dp.UnPack(headData)
 		if err != nil {
 			fmt.Println("Unpack error ", err)
-			continue
+			return
 		}
 		var data []byte
 		//根据dataLen读取data，放在msg的data中
@@ -60,22 +60,18 @@ func (c *Connection) StartReader() {
 			data = make([]byte, msg.GetDataLen())
 			if _, err := io.ReadFull(c.Conn, data); err != nil {
 				fmt.Println("from conn read data error ", err)
-				continue
+				return
 			}
 			msg.SetData(data)
 		}
 		//得到当前客户端请求的Request数据
-		req := Request{
+		req := &Request{
 			conn: c,
 			msg:  msg,
 		}
 
 		//执行注册路由的的方法
-		go func(request ziface.IRequest) {
-			c.Router.PreHandle(request)
-			c.Router.Handle(request)
-			c.Router.PostHandle(request)
-		}(&req)
+		c.MsgHandle.DoMsgHandler(req)
 	}
 }
 
@@ -115,6 +111,7 @@ func (c *Connection) RemoteAddr() net.Addr {
 	return c.Conn.RemoteAddr()
 }
 
+//将data消息进行封包，发送给TCP客户端
 func (c *Connection) Send(msgId uint32, data []byte) error {
 	// TODO 是否加锁
 	if c.IsClosed {
