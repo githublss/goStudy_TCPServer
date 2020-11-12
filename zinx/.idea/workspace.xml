@@ -24,14 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2426ab7b-3f98-4eab-bd99-2a5757dbe91a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zinx/ziface/iserver.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/ziface/iserver.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zinx/znet/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/connection.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zinx/znet/datapack.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/datapack.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zinx/znet/datapack_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/datapack_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zinx/znet/message.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/message.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zinx/znet/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/request.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zinx/znet/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zinx/znet/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,11 +67,12 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/myDemo/Zinx0.6" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/myDemo/Zinx0.7" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\gloang_code\zinx\src\myDemo\Zinx0.7" />
       <recent name="F:\gloang_code\zinx\src\myDemo\Zinx0.6" />
       <recent name="F:\gloang_code\zinx\src\myDemo\Zinx0.5" />
       <recent name="F:\gloang_code\zinx\src\myDemo\Zinx0.4" />
