@@ -24,7 +24,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2426ab7b-3f98-4eab-bd99-2a5757dbe91a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/utils/globalobj.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/utils/globalobj.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/ziface/imsgHandle.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/ziface/imsgHandle.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zinx/znet/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/znet/msgHandle.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/msgHandle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/znet/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/server.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,16 +71,16 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/myDemo/Zinx0.7" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/myDemo/Zinx0.8" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\gloang_code\zinx\src\myDemo\Zinx0.8" />
       <recent name="F:\gloang_code\zinx\src\myDemo\Zinx0.7" />
       <recent name="F:\gloang_code\zinx\src\myDemo\Zinx0.6" />
       <recent name="F:\gloang_code\zinx\src\myDemo\Zinx0.5" />
       <recent name="F:\gloang_code\zinx\src\myDemo\Zinx0.4" />
-      <recent name="F:\gloang_code\zinx\src\myDemo\V0.3" />
     </key>
   </component>
   <component name="RunManager" selected="Go Test.datapack_test.go">
@@ -187,10 +191,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="609" height="337" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1605064250693" />
-    <state x="577" y="342" width="1141" height="770" key="SettingsEditor" timestamp="1605146194766">
+    <state x="18" y="302" width="1141" height="770" key="SettingsEditor" timestamp="1605189550287">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="577" y="342" width="1141" height="770" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1605146194766" />
+    <state x="18" y="302" width="1141" height="770" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1605189550287" />
     <state x="1171" y="382" key="ftp.server.browser" timestamp="1604046374739">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

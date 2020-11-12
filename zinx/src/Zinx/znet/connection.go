@@ -1,6 +1,7 @@
 package znet
 
 import (
+	"Zinx/utils"
 	"Zinx/ziface"
 	"errors"
 	"fmt"
@@ -44,6 +45,7 @@ func (c *Connection) StartReader() {
 	defer c.Stop()
 
 	for {
+
 		dp := NewDataPack()
 		//从客户端发送数据读取 msg head
 		headData := make([]byte, dp.GetHeadLen())
@@ -57,6 +59,7 @@ func (c *Connection) StartReader() {
 			fmt.Println("Unpack error ", err)
 			return
 		}
+
 		var data []byte
 		//根据dataLen读取data，放在msg的data中
 		if msg.GetDataLen() > 0 {
@@ -67,14 +70,21 @@ func (c *Connection) StartReader() {
 			}
 			msg.SetData(data)
 		}
+
 		//得到当前客户端请求的Request数据
 		req := &Request{
 			conn: c,
 			msg:  msg,
 		}
 
-		//执行注册路由的的方法
-		c.MsgHandle.DoMsgHandler(req)
+		if utils.GlobalObject.TaskQueueSize > 0{
+			//如果开启了工作池机制，就将任务添加到任务队列中，让worker调用自己的msgHandle方法
+			c.MsgHandle.AddMsgToTaskQueue(req)
+		}else {
+			//没有开启工作池机制的时候，启动一个go程来执行对应的handle方法
+			go c.MsgHandle.DoMsgHandler(req)
+		}
+
 	}
 }
 func (c *Connection) StartWrite() {

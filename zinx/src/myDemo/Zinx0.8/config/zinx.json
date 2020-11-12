@@ -1,0 +1,12 @@
+{
+  "Host" : "0.0.0.0",
+  "TcpPort" : 9999,
+  "Name" : "Go Study Server",
+
+  "Version" : "V0.8",
+  "MaxPacketSize" : 1024,
+  "MaxConn" : 1024,
+
+  "WorkerPoolSize": 10,
+  "TaskQueueSize": 1024
+}

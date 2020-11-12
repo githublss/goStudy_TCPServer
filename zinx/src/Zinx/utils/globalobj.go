@@ -18,9 +18,11 @@ type GlobalObj struct {
 	/*
 		zinx
 	*/
-	Version       string //current version
-	MaxPacketSize uint32 //size of max message
-	MaxConn       int    //size of max connection num
+	Version        string //current version
+	MaxPacketSize  uint32 //size of max message
+	MaxConn        int    //size of max connection num
+	WorkerPoolSize uint32 //工作池的数量
+	TaskQueueSize  uint32 //每个工作池的等待队列的大小
 }
 
 var GlobalObject *GlobalObj
@@ -49,6 +51,8 @@ func init() {
 		Host:          "0.0.0.0",
 		MaxConn:       1024,
 		MaxPacketSize: 1024,
+		WorkerPoolSize: 10,
+		TaskQueueSize: 1024,
 	}
 	GlobalObject.Reload()
 }

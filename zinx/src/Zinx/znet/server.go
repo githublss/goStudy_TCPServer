@@ -20,6 +20,8 @@ func (s *Server) Start() {
 	fmt.Printf("[Start] Server Listenner at IP:%s, Port： %d, is started\n", s.IP, s.Port)
 	//
 	go func() {
+		//启动工作池机制
+		s.MsgHandle.StarWorkerPool()
 		//解析获取addr
 		addr, err := net.ResolveTCPAddr(s.IPVersion, fmt.Sprintf("%s:%d", s.IP, s.Port))
 		if err != nil {
