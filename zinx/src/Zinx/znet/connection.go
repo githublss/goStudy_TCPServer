@@ -10,6 +10,8 @@ import (
 )
 
 type Connection struct {
+	Server ziface.IServer
+
 	// 当前链接的tcp套接字
 	Conn *net.TCPConn
 
@@ -27,8 +29,9 @@ type Connection struct {
 	MsgHandle ziface.IMsgHandle
 }
 
-func NewConnection(conn *net.TCPConn, connID uint32, msgHandle ziface.IMsgHandle) *Connection {
+func NewConnection(server ziface.IServer, conn *net.TCPConn, connID uint32, msgHandle ziface.IMsgHandle) *Connection {
 	c := &Connection{
+		Server:    server,
 		Conn:      conn,
 		ConnID:    connID,
 		IsClosed:  false,
@@ -36,6 +39,8 @@ func NewConnection(conn *net.TCPConn, connID uint32, msgHandle ziface.IMsgHandle
 		ExitChan:  make(chan bool, 1),
 		MsgChan:   make(chan []byte),
 	}
+	//将创建的conn添加到管理器中
+	c.Server.GetConnManager().Add(c)
 	return c
 }
 
@@ -45,7 +50,6 @@ func (c *Connection) StartReader() {
 	defer c.Stop()
 
 	for {
-
 		dp := NewDataPack()
 		//从客户端发送数据读取 msg head
 		headData := make([]byte, dp.GetHeadLen())
@@ -77,10 +81,10 @@ func (c *Connection) StartReader() {
 			msg:  msg,
 		}
 
-		if utils.GlobalObject.TaskQueueSize > 0{
+		if utils.GlobalObject.TaskQueueSize > 0 {
 			//如果开启了工作池机制，就将任务添加到任务队列中，让worker调用自己的msgHandle方法
 			c.MsgHandle.AddMsgToTaskQueue(req)
-		}else {
+		} else {
 			//没有开启工作池机制的时候，启动一个go程来执行对应的handle方法
 			go c.MsgHandle.DoMsgHandler(req)
 		}
@@ -90,14 +94,14 @@ func (c *Connection) StartReader() {
 func (c *Connection) StartWrite() {
 	fmt.Println("[Writer] goroutine is running...")
 	defer fmt.Println("connID", c.ConnID, "[Write] is exit,Remote is -> ", c.RemoteAddr().String())
-	for{
+	for {
 		select {
-		case data := <- c.MsgChan:
-			if _,err := c.Conn.Write(data);err != nil{
-				fmt.Println("Write data error:",err)
+		case data := <-c.MsgChan:
+			if _, err := c.Conn.Write(data); err != nil {
+				fmt.Println("Write data error:", err)
 				return
 			}
-		case <- c.ExitChan:
+		case <-c.ExitChan:
 			fmt.Println("Writer is closed.")
 			return
 		}
@@ -106,15 +110,21 @@ func (c *Connection) StartWrite() {
 }
 func (c *Connection) Start() {
 	fmt.Println("Conn start()... connID=", c.ConnID)
+
 	//启动读数据业务
 	go c.StartReader()
 	//启动写数据业务
 	go c.StartWrite()
 
+	//调用用户注册的创建链接时的预处理hook方法
+	c.Server.CallOnConnStart(c)
 }
 
 func (c *Connection) Stop() {
 	fmt.Println("Conn stop()...  ConnID=", c.ConnID)
+
+	//调用关闭回调业务
+	c.Server.CallOnConnStop(c)
 
 	//当前链接已经关闭
 	if c.IsClosed == true {
@@ -127,6 +137,9 @@ func (c *Connection) Stop() {
 	}
 
 	c.ExitChan <- true
+
+	//将链接从管理器中删除
+	c.Server.GetConnManager().Remove(c)
 
 	//关闭reader与writer间的消息管道
 	close(c.MsgChan)
