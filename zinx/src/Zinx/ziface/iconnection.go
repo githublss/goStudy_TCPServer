@@ -22,6 +22,12 @@ type IConnection interface {
 
 	//发送数据
 	Send(msgId uint32, data []byte) error
+	//设置属性
+	SetProperty(name string,value interface{})
+	//获取属性
+	GetProperty(name string) (interface{},error)
+	//移除属性
+	RemoveProperty(name string)
 }
 
 //定义一个处理链接业务的方法

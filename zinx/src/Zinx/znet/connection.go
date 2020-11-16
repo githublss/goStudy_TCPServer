@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"io"
 	"net"
+	"sync"
 )
 
 type Connection struct {
@@ -27,6 +28,10 @@ type Connection struct {
 	ExitChan chan bool
 	//消息管理模块，用来绑定MsgId和对应的处理方法
 	MsgHandle ziface.IMsgHandle
+	//链接属性
+	Property map[string]interface{}
+	//property保护锁
+	PropertyLock sync.Mutex
 }
 
 func NewConnection(server ziface.IServer, conn *net.TCPConn, connID uint32, msgHandle ziface.IMsgHandle) *Connection {
@@ -38,6 +43,7 @@ func NewConnection(server ziface.IServer, conn *net.TCPConn, connID uint32, msgH
 		MsgHandle: msgHandle,
 		ExitChan:  make(chan bool, 1),
 		MsgChan:   make(chan []byte),
+		Property: map[string]interface{}{},
 	}
 	//将创建的conn添加到管理器中
 	c.Server.GetConnManager().Add(c)
@@ -176,4 +182,27 @@ func (c *Connection) Send(msgId uint32, data []byte) error {
 	c.MsgChan <- msg
 
 	return nil
+}
+//设置属性
+func (c *Connection) SetProperty(name string,value interface{}){
+	c.PropertyLock.Lock()
+	defer c.PropertyLock.Unlock()
+	c.Property[name] = value
+}
+//获取属性
+func (c *Connection) GetProperty(name string) (interface{},error){
+	c.PropertyLock.Lock()
+	defer c.PropertyLock.Unlock()
+	if value,ok := c.Property[name];ok{
+		return value,nil
+	}
+	return nil,errors.New("not have the Property")
+}
+//移除属性
+func (c *Connection) RemoveProperty(name string){
+	c.PropertyLock.Lock()
+	defer c.PropertyLock.Unlock()
+	if _,ok := c.Property[name];ok{
+		delete(c.Property,name)
+	}
 }
