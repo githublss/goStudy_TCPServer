@@ -11,6 +11,7 @@ import (
 )
 
 type Connection struct {
+	//当前链接的服务
 	Server ziface.IServer
 
 	// 当前链接的tcp套接字

@@ -22,6 +22,7 @@ func NewMsgHandle() *MsgHandle {
 		TaskQueue: make([]chan ziface.IRequest, utils.GlobalObject.WorkerPoolSize),
 	}
 }
+
 func (mh MsgHandle) AddMsgToTaskQueue(request ziface.IRequest)  {
 	//根据clientId来轮询的分配消息,使用取余法得到要处理的WorkId
 	workId := request.GetConnection().GetConnID() % utils.GlobalObject.WorkerPoolSize

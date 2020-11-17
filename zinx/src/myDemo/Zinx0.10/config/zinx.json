@@ -7,6 +7,6 @@
   "MaxPacketSize" : 1024,
   "MaxConn" : 1024,
 
-  "WorkerPoolSize": 10,
+  "WorkerPoolSize": 9,
   "TaskQueueSize": 1024
 }

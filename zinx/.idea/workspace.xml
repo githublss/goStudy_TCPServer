@@ -24,8 +24,12 @@
   <component name="ChangeListManager">
     <list default="true" id="2426ab7b-3f98-4eab-bd99-2a5757dbe91a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Zinx/ziface/iconnection.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/ziface/iconnection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/ziface/imessage.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/ziface/imessage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/ziface/imsgHandle.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/ziface/imsgHandle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/ziface/irequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/ziface/irequest.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Zinx/znet/connection.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/connection.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Zinx/znet/msgHandle.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/Zinx/znet/msgHandle.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myDemo/Zinx0.10/config/zinx.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/myDemo/Zinx0.10/config/zinx.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
